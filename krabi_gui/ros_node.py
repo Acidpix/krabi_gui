@@ -61,7 +61,8 @@ class KrabiGuiNode(Node):
         self._obstacle_front_msg:  PoseStamped | None = None
         self._obstacle_behind_msg: PoseStamped | None = None
 
-        self.create_subscription(Duration, '/krabi_ns/remaining_time',
+        # Published by main_strategy at the root (not in krabi_ns)
+        self.create_subscription(Duration, '/remaining_time',
                                  self._on_time, 10)
 
         self._cam_topic = None
